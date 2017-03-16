@@ -7,7 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch-client": "better-npm-run watch-client",
     "start-dev": "better-npm-run start-dev",
-    "dev": "concurrent --kill-others \"npm run watch-client\" \"npm run start-dev\""
+    "dev": "concurrent --kill-others \"npm run watch-client\" \"npm run start-dev\"",
+	"start": "concurrent --kill-others \"npm run start-prod\"",
+    "start-prod": "better-npm-run start-prod",
+    "build": "better-npm-run build"
   },
   "betterScripts":{
   	"watch-client": {
@@ -26,6 +29,21 @@
         "NODE_ENV": "development",
         "PORT": 3000,
         "APIPORT": 3030
+      }
+    },
+    "start-prod": {
+      "command": "node ./bin/server.js",
+      "env": {
+        "NODE_PATH": "./src",
+        "NODE_ENV": "production",
+        "PORT": 8080,
+        "APIPORT": 3030
+      }
+    },
+    "build": {
+      "command": "webpack --verbose --colors --display-error-details --config webpack/prod.config.js",
+      "env": {
+        "NODE_ENV": "production"
       }
     }
   },

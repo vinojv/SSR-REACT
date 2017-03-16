@@ -13,6 +13,7 @@ export default () => {
     <Route path="/" component={App}>
       { /* Home (main) route */ }
       <IndexRoute component={Home}/>
+      <Route path="home" component={Home}/>
 
       { /* Routes */ }
       <Route path="about" component={About}/>
